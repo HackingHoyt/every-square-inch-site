@@ -1,98 +1,358 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>About | Every Square Inch Property Care</title>
+  <title>About | Every Square Inch</title>
   <link rel="stylesheet" href="styles.css" />
+
+  <!-- ABOUT PAGE STYLES (self-contained so we don’t break other pages) -->
+  <style>
+    :root{
+      --esi-orange:#ff8200;
+      --esi-dark:#111318;
+      --esi-gray:#4b4b4b;
+      --esi-light:#f6f6f6;
+      --max:1100px;
+    }
+
+    body{ margin:0; }
+
+    /* ===== Header (matches the orange bar look) ===== */
+    .esi-topbar{
+      background:var(--esi-orange);
+      color:#fff;
+      position:sticky;
+      top:0;
+      z-index:50;
+    }
+    .esi-topbar__inner{
+      max-width:var(--max);
+      margin:0 auto;
+      padding:14px 16px;
+      display:flex;
+      align-items:center;
+      gap:16px;
+      justify-content:space-between;
+    }
+    .esi-brand{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      text-decoration:none;
+      color:#fff;
+      font-weight:800;
+      letter-spacing:.3px;
+      white-space:nowrap;
+    }
+    .esi-brand__logo{
+      width:34px;
+      height:34px;
+      border-radius:8px;
+      background:rgba(255,255,255,.18);
+      display:grid;
+      place-items:center;
+      font-weight:900;
+    }
+    .esi-nav{
+      display:flex;
+      gap:18px;
+      align-items:center;
+      flex-wrap:wrap;
+      justify-content:center;
+    }
+    .esi-nav a{
+      color:#fff;
+      text-decoration:none;
+      font-weight:600;
+      opacity:.95;
+    }
+    .esi-nav a:hover{ opacity:1; text-decoration:underline; }
+
+    .esi-cta{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:10px 12px;
+      background:rgba(0,0,0,.18);
+      border:1px solid rgba(255,255,255,.22);
+      border-radius:10px;
+      color:#fff;
+      text-decoration:none;
+      font-weight:700;
+      white-space:nowrap;
+    }
+
+    /* ===== Hero ===== */
+    .about-hero{
+      background:
+        linear-gradient(90deg, rgba(17,19,24,.92) 0%, rgba(17,19,24,.55) 55%, rgba(17,19,24,.15) 100%),
+        radial-gradient(circle at 20% 20%, rgba(255,130,0,.18), transparent 40%),
+        url("images/hero-bg.jpg");
+      background-size:cover;
+      background-position:center;
+      min-height:320px;
+      display:flex;
+      align-items:center;
+      padding:42px 16px;
+      color:#fff;
+    }
+    .about-hero__inner{
+      max-width:var(--max);
+      margin:0 auto;
+      width:100%;
+      display:flex;
+      justify-content:space-between;
+      align-items:flex-end;
+      gap:16px;
+    }
+    .about-hero h1{
+      margin:0;
+      font-size:44px;
+      line-height:1.05;
+      letter-spacing:.2px;
+    }
+    .about-hero h1 span{ color:var(--esi-orange); }
+    .about-hero p{
+      margin:10px 0 0;
+      max-width:620px;
+      opacity:.92;
+      font-weight:500;
+    }
+    .about-hero__btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      padding:12px 16px;
+      border-radius:10px;
+      background:var(--esi-orange);
+      color:#111;
+      font-weight:900;
+      text-decoration:none;
+      border:0;
+      white-space:nowrap;
+      box-shadow:0 10px 28px rgba(0,0,0,.25);
+    }
+
+    /* ===== Content Section ===== */
+    .about-section{
+      background:#fff;
+      padding:34px 16px 42px;
+    }
+    .about-section__inner{
+      max-width:var(--max);
+      margin:0 auto;
+      display:grid;
+      grid-template-columns: 1.25fr .85fr;
+      gap:26px;
+      align-items:start;
+    }
+
+    /* Left text block */
+    .about-copy h2{
+      margin:0 0 10px;
+      font-size:36px;
+      color:#111;
+    }
+    .about-copy p{
+      margin:0 0 12px;
+      color:var(--esi-gray);
+      line-height:1.65;
+      font-size:16px;
+    }
+
+    /* Right “Founder card” */
+    .founder-card{
+      border:1px solid #e7e7e7;
+      border-radius:14px;
+      overflow:hidden;
+      background:#fff;
+      box-shadow:0 10px 28px rgba(0,0,0,.06);
+    }
+    .founder-card__img{
+      width:100%;
+      height:auto;
+      display:block;
+      object-fit:cover;
+      background:#eee;
+    }
+    .founder-card__body{
+      padding:14px 14px 16px;
+    }
+    .founder-card__title{
+      margin:0 0 6px;
+      font-size:14px;
+      font-weight:900;
+      color:#111;
+      letter-spacing:.2px;
+    }
+    .founder-card__subtitle{
+      margin:0 0 10px;
+      font-size:12px;
+      font-weight:800;
+      color:var(--esi-orange);
+    }
+    .founder-card__text{
+      margin:0 0 14px;
+      font-size:14px;
+      color:var(--esi-gray);
+      line-height:1.55;
+    }
+    .founder-card__btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      padding:10px 12px;
+      border-radius:10px;
+      background:var(--esi-orange);
+      color:#111;
+      font-weight:900;
+      text-decoration:none;
+      border:0;
+    }
+
+    /* ===== Footer ===== */
+    .esi-footer{
+      background:var(--esi-orange);
+      color:#fff;
+      padding:18px 16px;
+    }
+    .esi-footer__inner{
+      max-width:var(--max);
+      margin:0 auto;
+      display:flex;
+      gap:16px;
+      justify-content:space-between;
+      align-items:center;
+      flex-wrap:wrap;
+      font-weight:700;
+    }
+    .esi-footer a{ color:#fff; text-decoration:none; }
+    .esi-footer a:hover{ text-decoration:underline; }
+
+    /* ===== Responsive ===== */
+    @media (max-width: 880px){
+      .about-hero__inner{ flex-direction:column; align-items:flex-start; }
+      .about-section__inner{ grid-template-columns:1fr; }
+      .about-hero h1{ font-size:36px; }
+    }
+  </style>
 </head>
+
 <body>
-<header class="site-header">
-  <div class="header-inner">
 
-    <div class="brand">
-      <span class="brand-name">Every Square Inch</span>
-      <span class="brand-sub">Property Care</span>
+  <!-- HEADER -->
+  <header class="esi-topbar">
+    <div class="esi-topbar__inner">
+      <a class="esi-brand" href="index.html">
+        <span class="esi-brand__logo">ESI</span>
+        Every Square Inch
+      </a>
+
+      <nav class="esi-nav" aria-label="Main navigation">
+        <a href="index.html">Home</a>
+        <a href="about.html">About Us</a>
+        <a href="services.html">Services</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+
+      <a class="esi-cta" href="tel:8659781744">📞 (865) 978-1744</a>
     </div>
+  </header>
 
-    <nav class="nav-links">
-      <a href="index.html">Home</a>
-      <a href="about.html">About Us</a>
-      <a href="services.html">Services</a>
-      <a href="contact.html" class="nav-active">Contact</a>
-    </nav>
+  <!-- HERO -->
+  <section class="about-hero">
+    <div class="about-hero__inner">
+      <div>
+        <h1>About <span>Every Square Inch</span></h1>
+        <p>
+          Founded on honesty, care, and detail. We treat every home like it’s our own —
+          and we show up ready to deliver results you can feel the moment you walk in.
+        </p>
+      </div>
 
-    <a class="phone-pill" href="tel:18659781744">
-      (865) 978-1744
-    </a>
-
-  </div>
-</header>
-
-  <div id="site-header"></div>
-
-  <section class="hero" data-hero="images/hero/home-hero.jpg">
-    <style>
-      .hero::before{ background-image: url('images/hero/home-hero.jpg'); }
-    </style>
-
-    <div class="hero-content reveal">
-      <h1>About <span class="accent">Every Square Inch</span></h1>
-      <p>
-        Founded on honesty, care, and attention to detail — because how you care for a space reflects how you care for people.
-      </p>
-      <a class="btn btn-primary" href="contact.html">Contact Now</a>
+      <a class="about-hero__btn" href="contact.html">Contact Us</a>
     </div>
   </section>
 
-  <main class="section">
-    <div class="container">
-      <div class="card reveal">
-        <h2 class="section-title">Hi, I’m Paula Lancaster.</h2>
-        <p class="section-sub">
-          Founder of Every Square Inch Property Care.
+  <!-- CONTENT -->
+  <main class="about-section">
+    <div class="about-section__inner">
+
+      <!-- Left: text (match the vibe of her site) -->
+      <section class="about-copy">
+        <h2>Hi, I’m Paula Lancaster.</h2>
+
+        <p>
+          I started Every Square Inch Property Care because I wanted property owners and guests
+          to have something rare: a team you can trust without stress. Vacation rentals move fast —
+          and when cleaning isn’t consistent, everything else falls apart.
         </p>
 
         <p>
-          I started this company with a clear purpose — to bring honesty, care, and real attention to detail back into the cleaning industry.
-          I’ve always believed that how you care for a space reflects how you care for people, and that belief is at the heart of everything we do.
+          My approach is simple: show up, communicate clearly, and handle the details like they matter
+          (because they do). Whether it’s a turnover clean, a deep clean, or helping keep a property
+          looking its best, we focus on reliability, pride in our work, and real results.
         </p>
 
         <p>
-          When we show up, we don’t just clean — we pay attention.
-          We treat your home or property like it’s our own, making sure every square inch is cared for with pride.
-          I’ve built this company on trust, consistency, and respect for our clients’ time and space.
+          If you need a dependable partner for your cabin, rental, or home — we’d love to help.
         </p>
+      </section>
 
-        <p>
-          Every Square Inch means exactly that — nothing overlooked, nothing rushed.
-          Just quality service, every time.
-        </p>
+      <!-- Right: founder card w/ her photo -->
+      <aside class="founder-card">
+        <img class="founder-card__img" src="images/hero.jpg" alt="Paula Lancaster" />
+        <div class="founder-card__body">
+          <p class="founder-card__title">Founder of Every Square Inch Property Care</p>
+          <p class="founder-card__subtitle">Care. Consistency. Trust.</p>
+          <p class="founder-card__text">
+            Quick responses, reliable scheduling, and detail-driven work — built for vacation rentals
+            and busy homeowners.
+          </p>
+          <a class="founder-card__btn" href="contact.html">Request a Quote</a>
+        </div>
+      </aside>
 
-        <a class="btn btn-primary" href="contact.html">Request a Quote</a>
-      </div>
     </div>
   </main>
 
-  <div id="site-footer"></div>
-
-  <script src="script.js"></script>
-  <footer class="site-footer">
+ <footer class="site-footer">
   <div class="footer-inner">
-
-    <div class="footer-left">
-      <strong>Every Square Inch Property Care</strong><br>
-      Kodak, TN<br>
-      <a href="tel:18659781744">(865) 978-1744</a><br>
-      <a href="mailto:hoytjmatthews@gmail.com">hoytjmatthews@gmail.com</a>
+    <div class="footer-brand">
+      <img class="footer-logo" src="images/logo-esi.png" alt="Every Square Inch Property Care" />
+      <p class="footer-copy">
+        Copyright Every Square Inch Cleaning and Maintenance 2025. All rights reserved
+      </p>
     </div>
 
-    <div class="footer-right">
-      © 2025 Every Square Inch. All rights reserved.
+    <div class="footer-links">
+      <div class="footer-col">
+        <h4>Company</h4>
+        <a href="about.html">About Us</a>
+        <a href="services.html">Services</a>
+      </div>
+
+      <div class="footer-col">
+        <h4>Customer Care</h4>
+        <a href="contact.html">Contact Us</a>
+      </div>
     </div>
 
+    <div class="footer-cta">
+      <a class="footer-btn" href="contact.html">Book Reservation</a>
+
+      <div class="footer-social">
+        <span class="footer-social-label">Follow Us</span>
+        <a class="footer-social-link" href="https://www.facebook.com/profile.php?id=61576698026577" target="_blank" rel="noopener">
+          <img class="footer-social-icon" src="images/facebook.png" alt="Facebook" />
+        </a>
+      </div>
+    </div>
   </div>
 </footer>
+
+
 
 </body>
 </html>
