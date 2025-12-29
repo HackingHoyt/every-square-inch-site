@@ -1,0 +1,121 @@
+<!-- contact.html
+     Simple contact form (HTML only).
+     JS will handle sending it to your Node/Express server.
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact | ESI Property Care</title>
+
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+
+<body>
+  <header class="site-header">
+  <div class="header-inner">
+
+    <div class="brand">
+      <span class="brand-name">Every Square Inch</span>
+      <span class="brand-sub">Property Care</span>
+    </div>
+
+    <nav class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="about.html">About Us</a>
+      <a href="services.html">Services</a>
+      <a href="contact.html" class="nav-active">Contact</a>
+    </nav>
+
+    <a class="phone-pill" href="tel:18659781744">
+      (865) 978-1744
+    </a>
+
+  </div>
+</header>
+
+  <main class="contact-page">
+    <section class="contact-card">
+      <header class="contact-header">
+        <h1>Request a Quote</h1>
+        <p>Send us a quick message and we’ll get back to you ASAP.</p>
+      </header>
+
+      <!-- IMPORTANT:
+           - Do NOT put a mailto: here.
+           - JS will intercept submit and POST to your server.
+      -->
+      <form id="contactForm" novalidate>
+        <!-- Honeypot spam trap (humans won’t fill this out) -->
+        <div class="hp-field" aria-hidden="true">
+          <label for="company">Company</label>
+          <input id="company" name="company" type="text" tabindex="-1" autocomplete="off" />
+        </div>
+
+        <div class="form-row">
+          <label for="name">Full Name <span aria-hidden="true">*</span></label>
+          <input id="name" name="name" type="text" placeholder="Your name" required />
+        </div>
+
+        <div class="form-row">
+          <label for="email">Email <span aria-hidden="true">*</span></label>
+          <input id="email" name="email" type="email" placeholder="you@example.com" required />
+        </div>
+
+        <div class="form-row">
+          <label for="phone">Phone</label>
+          <input id="phone" name="phone" type="tel" placeholder="(555) 555-5555" />
+        </div>
+
+        <div class="form-row">
+          <label for="service">Service</label>
+          <select id="service" name="service">
+            <option value="">Select a service…</option>
+            <option value="Vacation Rental Turnover">Vacation Rental Turnover</option>
+            <option value="Deep Cleaning">Deep Cleaning</option>
+            <option value="Laundry Service">Laundry Service</option>
+            <option value="Lawn Care">Lawn Care</option>
+            <option value="Light Maintenance">Light Maintenance</option>
+            <option value="Other">Other</option>
+          </select>
+        </div>
+
+        <div class="form-row">
+          <label for="message">Message <span aria-hidden="true">*</span></label>
+          <textarea
+            id="message"
+            name="message"
+            rows="6"
+            placeholder="Tell us what you need (location, size, dates, etc.)"
+            required
+          ></textarea>
+        </div>
+
+        <div class="form-actions">
+          <button id="submitBtn" type="submit">Send Message</button>
+          <p class="fine-print">
+            By submitting, you agree we may contact you by email or phone.
+          </p>
+        </div>
+
+        <!-- Status / errors will show here -->
+        <div id="formStatus" class="form-status" role="status" aria-live="polite"></div>
+      </form>
+
+      <footer class="contact-footer">
+        <p>
+          Prefer email? <strong>We’ll still use this form</strong> — it sends straight to our inbox.
+        </p>
+      </footer>
+    </section>
+  </main>
+
+  <!-- Your existing script.js (we’ll replace it next) -->
+  <script src="./script.js"></script>
+  <script>
+  console.log("✅ contact.html loaded");
+</script>
+
+</body>
+</html>
