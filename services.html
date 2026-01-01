@@ -5,41 +5,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Services | Every Square Inch Property Care</title>
   <link rel="stylesheet" href="styles.css" />
+  <script src="include.js" defer></script>
+  <script src="script.js" defer></script>
 </head>
 
 <body>
-  <header class="site-header">
-  <div class="header-inner">
+  <div id="site-header-slot"></div>
 
-    <div class="brand">
-      <span class="brand-name">Every Square Inch</span>
-      <span class="brand-sub">Property Care</span>
-    </div>
-
-    <nav class="nav-links">
-      <a href="index.html">Home</a>
-      <a href="about.html">About Us</a>
-      <a href="services.html">Services</a>
-      <a href="contact.html" class="nav-active">Contact</a>
-    </nav>
-
-    <a class="phone-pill" href="tel:18659781744">
-      (865) 978-1744
-    </a>
-
-  </div>
-</header>
-
-
-  <!-- Shared header injected by script.js -->
-  <div id="site-header"></div>
-
-  <!-- HERO -->
   <section class="hero">
     <style>
-      .hero::before {
-        background-image: url("images/hero/services-hero.jpg");
-      }
+      .hero::before { background-image: url("images/hero/services-hero.jpg"); }
     </style>
 
     <div class="hero-content reveal">
@@ -49,14 +24,13 @@
         Done with pride, consistency, and real attention to detail.
       </p>
 
-      <div class="hero-actions">
+      <div style="display:flex; gap:12px; justify-content:center; flex-wrap:wrap;">
         <a class="btn btn-primary" href="contact.html">Request a Quote</a>
-        <a class="btn btn-outline" href="#services">View Services</a>
+        <a class="btn btn-ghost" href="#services">View Services</a>
       </div>
     </div>
   </section>
 
-  <!-- SERVICES -->
   <main class="section" id="services">
     <div class="container">
 
@@ -67,7 +41,6 @@
 
       <div class="grid grid-2">
 
-        <!-- Vacation Rental Cleaning -->
         <article class="card service-card reveal">
           <div class="service-media">
             <img src="images/vacation-rental.jpg" alt="Vacation rental cleaning">
@@ -86,7 +59,6 @@
           </div>
         </article>
 
-        <!-- Laundry Service -->
         <article class="card service-card reveal">
           <div class="service-media">
             <img src="images/laundry.jpg" alt="Laundry service">
@@ -105,7 +77,6 @@
           </div>
         </article>
 
-        <!-- Deep Cleaning -->
         <article class="card service-card reveal">
           <div class="service-media">
             <img src="images/deep-cleaning.jpg" alt="Deep cleaning service">
@@ -124,7 +95,6 @@
           </div>
         </article>
 
-        <!-- Lawn Care -->
         <article class="card service-card reveal">
           <div class="service-media">
             <img src="images/lawn-care.jpg" alt="Lawn care service">
@@ -143,7 +113,6 @@
           </div>
         </article>
 
-        <!-- Light Maintenance -->
         <article class="card service-card reveal">
           <div class="service-media">
             <img src="images/light-maintenance.jpg" alt="Light maintenance service">
@@ -166,45 +135,6 @@
     </div>
   </main>
 
-  <!-- Shared footer injected by script.js -->
-  <div id="site-footer"></div>
-
-  <script src="script.js"></script>
-<footer class="site-footer">
-  <div class="footer-inner">
-    <div class="footer-brand">
-      <img class="footer-logo" src="images/logo-esi.png" alt="Every Square Inch Property Care" />
-      <p class="footer-copy">
-        Copyright Every Square Inch Cleaning and Maintenance 2025. All rights reserved
-      </p>
-    </div>
-
-    <div class="footer-links">
-      <div class="footer-col">
-        <h4>Company</h4>
-        <a href="about.html">About Us</a>
-        <a href="services.html">Services</a>
-      </div>
-
-      <div class="footer-col">
-        <h4>Customer Care</h4>
-        <a href="contact.html">Contact Us</a>
-      </div>
-    </div>
-
-    <div class="footer-cta">
-      <a class="footer-btn" href="contact.html">Book Reservation</a>
-
-      <div class="footer-social">
-        <span class="footer-social-label">Follow Us</span>
-        <a class="footer-social-link" href="https://www.facebook.com/profile.php?id=61576698026577" target="_blank" rel="noopener">
-          <img class="footer-social-icon" src="images/facebook.png" alt="Facebook" />
-        </a>
-      </div>
-    </div>
-  </div>
-</footer>
-
-
+  <div id="site-footer-slot"></div>
 </body>
 </html>

@@ -1,0 +1,54 @@
+<!-- =========================================================
+  header.html (Shared)
+  - Injected into every page via include.js
+  - Matches the screenshot layout:
+    Logo (left) | Nav (middle) | Phone button (right)
+  - Mobile menu included
+========================================================= -->
+
+<header class="site-header" id="siteHeader">
+  <div class="header-inner">
+    <!-- LOGO (left) -->
+    <a class="brand" href="index.html" aria-label="Go to Home">
+      <img
+        src="images/logo-esi.jpg"
+        alt="Every Square Inch Property Care"
+        class="brand-logo"
+      />
+    </a>
+
+    <!-- NAV (center) -->
+    <nav class="site-nav" aria-label="Primary navigation">
+      <a class="nav-link" href="index.html" data-page="index">Home</a>
+      <a class="nav-link" href="about.html" data-page="about">About Us</a>
+      <a class="nav-link" href="services.html" data-page="services">Services</a>
+      <a class="nav-link" href="contact.html" data-page="contact">Contact</a>
+    </nav>
+
+    <!-- PHONE (right) -->
+    <a class="header-phone" href="tel:18659781744" aria-label="Call (865) 978-1744">
+      <span class="phone-icon" aria-hidden="true">☎</span>
+      <span class="phone-text">(865) 978-1744</span>
+    </a>
+
+    <!-- MOBILE MENU BUTTON -->
+    <button
+      class="menu-btn"
+      id="menuBtn"
+      type="button"
+      aria-label="Open menu"
+      aria-controls="mobileMenu"
+      aria-expanded="false"
+    >
+      <span class="menu-bars" aria-hidden="true"></span>
+    </button>
+  </div>
+
+  <!-- MOBILE MENU PANEL -->
+  <div class="mobile-menu" id="mobileMenu" hidden>
+    <a class="mobile-link" href="index.html" data-page="index">Home</a>
+    <a class="mobile-link" href="about.html" data-page="about">About Us</a>
+    <a class="mobile-link" href="services.html" data-page="services">Services</a>
+    <a class="mobile-link" href="contact.html" data-page="contact">Contact</a>
+  </div>
+</header>

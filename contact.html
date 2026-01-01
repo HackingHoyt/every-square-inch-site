@@ -1,281 +1,141 @@
-<!-- contact.html
-     Simple contact form (HTML only).
-     JS will handle sending it to your Node/Express server.
--->
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Contact | ESI Property Care</title>
-
-  <link rel="stylesheet" href="./styles.css" />
-
-  <style>
-    /* Contact page layout: form + map/info side-by-side on desktop, stacked on mobile */
-    .contact-page {
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 40px 16px;
-    }
-
-    .contact-grid {
-      display: grid;
-      grid-template-columns: 1.15fr 0.85fr;
-      gap: 24px;
-      align-items: start;
-    }
-
-    @media (max-width: 900px) {
-      .contact-grid {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    .contact-side {
-      background: #fff;
-      border-radius: 14px;
-      overflow: hidden;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
-    }
-
-    .contact-side-header {
-      padding: 18px 18px 0 18px;
-    }
-
-    .contact-side-header h2 {
-      margin: 0;
-      font-size: 20px;
-      line-height: 1.2;
-    }
-
-    .contact-side-header p {
-      margin: 8px 0 0 0;
-      opacity: 0.8;
-    }
-
-    .contact-map {
-      width: 100%;
-      height: 320px;
-      border: 0;
-      display: block;
-    }
-
-    .contact-info {
-      padding: 18px;
-      border-top: 1px solid rgba(0,0,0,0.06);
-    }
-
-    .contact-info p {
-      margin: 10px 0;
-      line-height: 1.5;
-    }
-
-    .contact-info strong {
-      display: inline-block;
-      min-width: 70px;
-    }
-
-    .contact-info a {
-      text-decoration: none;
-    }
-
-    .contact-mini {
-      margin-top: 14px;
-      padding-top: 14px;
-      border-top: 1px dashed rgba(0,0,0,0.12);
-      font-size: 14px;
-      opacity: 0.85;
-    }
-  </style>
+  <title>Contact - Every Square Inch Property Care</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script src="include.js" defer></script>
 </head>
 
 <body>
-  <header class="site-header">
-    <div class="header-inner">
+  <!-- Header injected here -->
+  <div id="site-header-slot"></div>
 
-      <div class="brand">
-        <span class="brand-name">Every Square Inch</span>
-        <span class="brand-sub">Property Care</span>
+  <main class="page-wrap">
+    <section class="contact-wrap">
+      <div class="contact-card">
+        <div class="contact-grid">
+
+          <!-- LEFT: FORM -->
+          <div class="contact-form">
+            <h1>Request a Quote!</h1>
+            <p class="contact-sub">
+              Get your personalized cleaning quote today. We’ll tailor our work to your needs — with the same care and respect we’d give our own space.
+            </p>
+
+            <form action="thankyou.html" method="GET" class="quote-form">
+              <div class="form-row">
+                <label>Services <span aria-hidden="true">*</span></label>
+
+                <!-- Hidden “required gate” checkbox -->
+                <input type="checkbox" id="serviceRequired" required hidden>
+
+                <div class="service-checks">
+                  <label><input type="checkbox" name="services" value="Vacation Rental Turnover"
+                    onchange="document.getElementById('serviceRequired').checked =
+                      document.querySelectorAll('input[name=services]:checked').length > 0"> Vacation Rental Turnover</label>
+
+                  <label><input type="checkbox" name="services" value="Deep Cleaning"
+                    onchange="document.getElementById('serviceRequired').checked =
+                      document.querySelectorAll('input[name=services]:checked').length > 0"> Deep Cleaning</label>
+
+                  <label><input type="checkbox" name="services" value="Laundry Service"
+                    onchange="document.getElementById('serviceRequired').checked =
+                      document.querySelectorAll('input[name=services]:checked').length > 0"> Laundry Service</label>
+
+                  <label><input type="checkbox" name="services" value="Lawn Care"
+                    onchange="document.getElementById('serviceRequired').checked =
+                      document.querySelectorAll('input[name=services]:checked').length > 0"> Lawn Care</label>
+
+                  <label><input type="checkbox" name="services" value="Light Maintenance"
+                    onchange="document.getElementById('serviceRequired').checked =
+                      document.querySelectorAll('input[name=services]:checked').length > 0"> Light Maintenance</label>
+                </div>
+              </div>
+
+              <div class="form-row">
+                <label for="fullname">Full Name</label>
+                <input id="fullname" name="fullname" type="text" autocomplete="name" required />
+              </div>
+
+              <div class="form-row">
+                <label for="phone">Phone</label>
+                <input id="phone" name="phone" type="tel" autocomplete="tel" required />
+              </div>
+
+              <div class="form-row">
+                <label for="email">Email</label>
+                <input id="email" name="email" type="email" autocomplete="email" required />
+              </div>
+
+              <div class="form-row">
+                <label for="street">Street Address</label>
+                <input id="street" name="street" type="text" autocomplete="street-address" />
+              </div>
+
+              <div class="form-two">
+                <div class="form-row">
+                  <label for="city">City</label>
+                  <input id="city" name="city" type="text" autocomplete="address-level2" />
+                </div>
+
+                <div class="form-row">
+                  <label for="state">State</label>
+                  <input id="state" name="state" type="text" autocomplete="address-level1" />
+                </div>
+              </div>
+
+              <div class="form-two">
+                <div class="form-row">
+                  <label for="country">Country</label>
+                  <select id="country" name="country">
+                    <option value="United States" selected>United States</option>
+                    <option value="Canada">Canada</option>
+                    <option value="Mexico">Mexico</option>
+                  </select>
+                </div>
+
+                <div class="form-row">
+                  <label for="zip">Postal Code</label>
+                  <input id="zip" name="zip" type="text" autocomplete="postal-code" />
+                </div>
+              </div>
+
+              <div class="form-row">
+                <label for="description">Description</label>
+                <textarea id="description" name="description" rows="4"></textarea>
+              </div>
+
+              <button class="btn-primary" type="submit">Submit</button>
+            </form>
+          </div>
+
+          <!-- RIGHT: MAP + CONTACT -->
+          <div class="contact-side">
+            <h2>Get in Touch!</h2>
+
+            <div class="map-box">
+              <iframe
+                title="ESI Location Map"
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"
+                src="https://www.google.com/maps?q=4120%20Briggs%20Loop,%20Kodak,%20TN%2037764&output=embed"></iframe>
+            </div>
+
+            <div class="contact-details">
+              <p><strong>Address:</strong> 4120 Briggs Loop, Kodak TN 37764</p>
+              <p><strong>Email:</strong> esihomemaintenance@gmail.com</p>
+              <p><strong>Phone:</strong> (865) 978-1744</p>
+            </div>
+          </div>
+
+        </div>
       </div>
-
-      <nav class="nav-links">
-        <a href="index.html">Home</a>
-        <a href="about.html">About Us</a>
-        <a href="services.html">Services</a>
-        <a href="contact.html" class="nav-active">Contact</a>
-      </nav>
-
-      <a class="phone-pill" href="tel:18659781744">
-        (865) 978-1744
-      </a>
-
-    </div>
-  </header>
-
-  <main class="contact-page">
-    <!-- NEW: grid wrapper (form left, map/info right) -->
-    <div class="contact-grid">
-
-      <!-- LEFT: your form card (UNCHANGED) -->
-      <section class="contact-card">
-        <header class="contact-header">
-          <h1>Request a Quote</h1>
-          <p>Send us a quick message and we’ll get back to you ASAP.</p>
-        </header>
-
-        <!-- IMPORTANT:
-             - Do NOT put a mailto: here.
-             - JS will intercept submit and POST to your server.
-        -->
-        <form id="contactForm" action="https://formsubmit.co/hackinghoyt@gmail.com" method="POST">
-          <!-- FormSubmit settings (simple form-to-email, no backend needed) -->
-  <input type="hidden" name="_subject" value="New Quote Request — ESI Property Care" />
-  <input type="hidden" name="_captcha" value="false" />
-  <input type="hidden" name="_template" value="table" />
-
-          <!-- Honeypot spam trap (humans won’t fill this out) -->
-          <div class="hp-field" aria-hidden="true">
-            <label for="company">Company</label>
-            <input id="company" name="company" type="text" tabindex="-1" autocomplete="off" />
-          </div>
-
-          <div class="form-row">
-            <label for="name">Full Name <span aria-hidden="true">*</span></label>
-            <input id="name" name="name" type="text" placeholder="Your name" required />
-          </div>
-
-          <div class="form-row">
-            <label for="email">Email <span aria-hidden="true">*</span></label>
-            <input id="email" name="email" type="email" placeholder="you@example.com" required />
-          </div>
-
-          <div class="form-row">
-            <label for="phone">Phone</label>
-            <input id="phone" name="phone" type="tel" placeholder="(555) 555-5555" />
-          </div>
-
-          <div class="form-row">
-            <label for="service">Service</label>
-            <select id="service" name="service">
-              <option value="">Select a service…</option>
-              <option value="Vacation Rental Turnover">Vacation Rental Turnover</option>
-              <option value="Deep Cleaning">Deep Cleaning</option>
-              <option value="Laundry Service">Laundry Service</option>
-              <option value="Lawn Care">Lawn Care</option>
-              <option value="Light Maintenance">Light Maintenance</option>
-              <option value="Other">Other</option>
-            </select>
-          </div>
-
-          <div class="form-row">
-            <label for="message">Message <span aria-hidden="true">*</span></label>
-            <textarea
-              id="message"
-              name="message"
-              rows="6"
-              placeholder="Tell us what you need (location, size, dates, etc.)"
-              required
-            ></textarea>
-          </div>
-
-          <div class="form-actions">
-            <button id="submitBtn" type="submit">Send Message</button>
-            <p class="fine-print">
-              By submitting, you agree we may contact you by email or phone.
-            </p>
-          </div>
-
-          <!-- Status / errors will show here -->
-          <div id="formStatus" class="form-status" role="status" aria-live="polite"></div>
-        </form>
-
-        <footer class="contact-footer">
-          <p>
-            Prefer email? <strong>We’ll still use this form</strong> — it sends straight to our inbox.
-          </p>
-        </footer>
-      </section>
-
-      <!-- RIGHT: map + office info (NEW) -->
-      <aside class="contact-side" aria-label="Office location and contact info">
-        <div class="contact-side-header">
-          <h2>Office Location</h2>
-          <p>Serving Kodak, TN and surrounding areas.</p>
-        </div>
-
-        <!-- Google Map Embed (Kodak, TN) -->
-        <iframe
-          class="contact-map"
-          loading="lazy"
-          referrerpolicy="no-referrer-when-downgrade"
-          src="https://www.google.com/maps?q=Kodak,+TN&output=embed"
-          title="Map to Every Square Inch Property Care"
-        ></iframe>
-
-        <div class="contact-info">
-          <p><strong>Address:</strong> 4132 Ernie Lomax Rd, Kodak, TN 37764</p>
-          <p><strong>Email:</strong> <a href="mailto:cbi-maintenance@gmail.com">cbi-maintenance@gmail.com</a></p>
-          <p><strong>Phone:</strong> <a href="tel:18659781744">(865) 978-1744</a></p>
-
-          <div class="contact-mini">
-            <p>
-              Prefer Facebook? Follow us here:
-              <a href="https://www.facebook.com/profile.php?id=61576698026577" target="_blank" rel="noopener">
-                Every Square Inch Property Care
-              </a>
-            </p>
-          </div>
-        </div>
-      </aside>
-
-    </div>
+    </section>
   </main>
 
-  <!-- Your existing script.js -->
-  <script src="./script.js"></script>
-  <script>
-    console.log("✅ contact.html loaded");
-  </script>
-
-  <footer class="site-footer">
-    <div class="footer-inner">
-      <div class="footer-brand">
-        <img class="footer-logo" src="images/logo-esi.png" alt="Every Square Inch Property Care" />
-        <p class="footer-copy">
-          Copyright Every Square Inch Cleaning and Maintenance 2025. All rights reserved
-        </p>
-      </div>
-
-      <div class="footer-links">
-        <div class="footer-col">
-          <h4>Company</h4>
-          <a href="about.html">About Us</a>
-          <a href="services.html">Services</a>
-        </div>
-
-        <div class="footer-col">
-        </div>
-      </div>
-
-      <div class="footer-cta">
-        <a class="footer-btn" href="contact.html">Book Reservation</a>
-        <span style="font-size:22px;">📘</span>
-
-        <div class="footer-social">
-          <span class="footer-social-label">Follow Us</span>
-          <a class="footer-social-link"
-     href="https://www.facebook.com/profile.php?id=61576698026577"
-     target="_blank" rel="noopener">
-    Facebook
-  </a>
-            
-          </a>
-        </div>
-      </div>
-    </div>
-  </footer>     <h4>Customer Care</h4>
-          <a href="contact.html">Contact Us</a>
-     
+  <!-- Footer injected here -->
+  <div id="site-footer-slot"></div>
 </body>
 </html>
