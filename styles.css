@@ -690,3 +690,174 @@ button.btn-primary{
     grid-template-columns: 1fr;
   }
 }
+/* ===========================
+   MOBILE MENU FIX (CUT-OFF)
+   =========================== */
+
+#siteHeader { position: sticky; top: 0; z-index: 9999; }
+
+/* make sure the header inner can be an anchor for absolute menu */
+.header-inner { position: relative; }
+
+/* the dropdown itself */
+#mobileMenu {
+  position: absolute;
+  top: calc(100% + 10px);
+  right: 12px;
+  left: auto;
+
+  width: min(240px, calc(100vw - 24px));
+  max-width: calc(100vw - 24px);
+
+  z-index: 10000;
+  overflow: visible;
+}
+
+/* if any parent is clipping the dropdown, kill the clip */
+#siteHeader,
+.header-inner,
+.site-header {
+  overflow: visible !important;
+}
+/* ============================================================
+   MOBILE PATCHES (KEEP LAST)
+   Put ALL mobile-only fixes here so we never duplicate styles.
+============================================================ */
+
+/* kill accidental horizontal scroll */
+html, body { overflow-x: hidden; }
+
+/* CONTACT: services checkboxes + form spacing on phones */
+@media (max-width: 600px) {
+
+  /* make the checkbox list 1-column and tight */
+  .service-checks{
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 10px !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  .service-checks label{
+    display: flex !important;
+    align-items: center !important;
+    gap: 12px !important;
+    line-height: 1.2 !important;
+    white-space: normal !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  /* make the checkbox not huge */
+  .service-checks input[type="checkbox"]{
+    width: 20px !important;
+    height: 20px !important;
+    margin: 0 !important;
+    flex: 0 0 auto !important;
+  }
+
+  /* reduce crazy spacing between form rows if you have it */
+  .quote-form .form-row{
+    margin: 0 0 14px !important;
+  }
+
+  /* stop the 2-column City/State row from squeezing on mobile */
+  .quote-form .grid-2,
+  .quote-form .two-col,
+  .quote-form .row-2{
+    grid-template-columns: 1fr !important;
+  }
+}
+
+/* ============================================================
+   MOBILE PATCHES (KEEP LAST)
+============================================================ */
+
+/* kill accidental horizontal scroll */
+html, body { overflow-x: hidden; }
+
+/* Make checkboxes orange (Chrome/Android supported) */
+input[type="checkbox"]{
+  accent-color: #ff8200;
+}
+
+/* CONTACT: services checkboxes + form spacing on phones */
+@media (max-width: 600px) {
+
+  /* force 1-column services list */
+  .service-checks{
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 12px;
+    margin: 0;
+    padding: 0;
+  }
+
+  .service-checks label{
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    line-height: 1.2;
+    white-space: normal;
+    margin: 0;
+    padding: 0;
+  }
+
+  .service-checks input[type="checkbox"]{
+    width: 22px;
+    height: 22px;
+    margin: 0;
+    flex: 0 0 auto;
+  }
+
+  /* general form spacing */
+  .quote-form .form-row{
+    margin: 0 0 14px;
+  }
+
+  /* stop City/State from squeezing into 2 columns on phones */
+  .quote-form .grid-2,
+  .quote-form .two-col,
+  .quote-form .row-2{
+    grid-template-columns: 1fr;
+  }
+}
+/* ===== MOBILE FIX: Contact form should NEVER overflow ===== */
+@media (max-width: 700px) {
+  /* Prevent width math from causing cut-off */
+  *, *::before, *::after { box-sizing: border-box; }
+
+  /* Make the services list ALWAYS 1 column on phones */
+  .service-checks {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 12px !important;
+  }
+
+  .service-checks label {
+    display: flex !important;
+    align-items: center !important;
+    gap: 12px !important;
+    white-space: normal !important;
+  }
+
+  .service-checks input[type="checkbox"] {
+    flex: 0 0 auto !important;
+  }
+
+  /* Any 2-column rows in the form must stack on mobile */
+  .quote-form .grid-2,
+  .quote-form .row-2,
+  .quote-form .two-col {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* Force inputs to stay inside the card */
+  .quote-form input,
+  .quote-form select,
+  .quote-form textarea {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+}

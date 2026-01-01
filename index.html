@@ -4,73 +4,101 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Every Square Inch Property Care</title>
+
   <link rel="stylesheet" href="styles.css" />
-  
 </head>
 
 <body>
-  <!-- Shared header (injected) -->
+
+  <!-- Shared Header -->
   <div id="site-header-slot"></div>
 
   <!-- HERO -->
   <section class="hero">
-    <style>
-      .hero::before{ background-image: url('images/home-hero.jpg'); }
-    </style>
+    <div class="hero-overlay"></div>
 
     <div class="hero-content reveal">
-      <h1>Reliable cleaning, <span class="accent">remarkable</span> stays.</h1>
+      <h1>
+        Reliable cleaning,
+        <span class="accent">remarkable</span> stays.
+      </h1>
+
       <p>
-        Vacation rentals, deep cleaning, laundry service — plus lawn care and light maintenance.
+        Vacation rentals, deep cleaning, laundry service —
+        plus lawn care and light maintenance.
         Done with pride, consistency, and real attention to detail.
       </p>
 
-      <div style="display:flex; gap:12px; justify-content:center; flex-wrap:wrap;">
+      <div class="hero-actions">
         <a class="btn btn-primary" href="contact.html">Request a Quote</a>
         <a class="btn btn-ghost" href="services.html">View Services</a>
       </div>
     </div>
   </section>
 
+  <!-- MAIN CONTENT -->
   <main class="section">
     <div class="container">
+
       <div class="grid grid-2">
+
+        <!-- LEFT CARD -->
         <div class="card reveal">
           <h2 class="section-title">What we do</h2>
           <p class="section-sub">
-            We help owners and property managers keep everything guest-ready and stress-free.
+            We help owners and property managers keep everything
+            guest-ready and stress-free.
           </p>
 
           <ul class="checklist">
-            <li><span class="check-dot"></span><span>Vacation rental cleaning with consistent, checklist-driven results</span></li>
-            <li><span class="check-dot"></span><span>Deep cleaning for seasonal resets, move-in/out, or “bring it back to life” jobs</span></li>
-            <li><span class="check-dot"></span><span>Laundry service to keep turnovers smooth and on time</span></li>
-            <li><span class="check-dot"></span><span>Lawn care and light maintenance (separate services)</span></li>
+            <li>
+              <span class="check-dot"></span>
+              <span>Vacation rental cleaning with consistent, checklist-driven results</span>
+            </li>
+            <li>
+              <span class="check-dot"></span>
+              <span>Deep cleaning for seasonal resets, move-in/out, or full refreshes</span>
+            </li>
+            <li>
+              <span class="check-dot"></span>
+              <span>Laundry service to keep turnovers smooth and on time</span>
+            </li>
+            <li>
+              <span class="check-dot"></span>
+              <span>Lawn care and light maintenance (separate services)</span>
+            </li>
           </ul>
 
           <a class="btn btn-primary" href="contact.html">Get a Free Quote</a>
         </div>
 
+        <!-- RIGHT CARD -->
         <div class="card reveal">
           <h2 class="section-title">Why it matters</h2>
           <p class="section-sub">
-            Every Square Inch means exactly that — nothing overlooked, nothing rushed.
-            Just quality service, every time.
+            Every Square Inch means exactly that —
+            nothing overlooked, nothing rushed.
           </p>
 
           <p>
-            We show up ready. We communicate clearly. We treat your property like it’s our own.
+            We show up ready. We communicate clearly.
+            We treat your property like it’s our own.
           </p>
 
           <a class="btn btn-primary" href="about.html">Meet Paula</a>
         </div>
+
       </div>
+
     </div>
   </main>
 
-  <!-- Shared footer (injected) -->
+  <!-- Shared Footer -->
   <div id="site-footer-slot"></div>
+
+  <!-- Scripts -->
   <script src="include.js" defer></script>
   <script src="script.js" defer></script>
+
 </body>
 </html>
