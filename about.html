@@ -7,21 +7,28 @@
   <link rel="stylesheet" href="styles.css" />
 </head>
 
-<body>
-  <!-- Injected Header -->
+<body class="page-about">
+  <!-- Shared header (injected) -->
   <div id="site-header-slot"></div>
 
   <main class="section">
     <div class="container">
 
+      <!-- =========================================================
+        ABOUT (Desktop: photo left / text right)
+        Mobile: stacks
+      ========================================================== -->
       <section class="about-wrap reveal">
-        <!-- LEFT: Paula image (NOT a background) -->
+
+        <!-- LEFT: Paula photo -->
         <div class="about-photo">
-          <!-- Update the src to whatever Paula image file you actually have -->
-          <img src="images/hero.jpg" alt="Paula Lancaster - Every Square Inch Property Care" />
+          <img
+            src="images/hero.jpg"
+            alt="Paula Lancaster - Every Square Inch Property Care"
+          />
         </div>
 
-        <!-- RIGHT: About text -->
+        <!-- RIGHT: Text -->
         <div class="about-copy">
           <h1 class="about-title">
             About <span class="accent">Every Square Inch</span>
@@ -52,15 +59,16 @@
             <a class="btn btn-ghost" href="services.html">View Services</a>
           </div>
         </div>
+
       </section>
 
     </div>
   </main>
 
-  <!-- Injected Footer -->
+  <!-- Shared footer (injected) -->
   <div id="site-footer-slot"></div>
 
-  <script src="include.js"></script>
-  <script src="script.js"></script>
+  <script src="include.js" defer></script>
+  <script src="script.js" defer></script>
 </body>
 </html>
